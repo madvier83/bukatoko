@@ -25,41 +25,52 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         User::create([
-            'name' => "Muhammad Advie Rifaldy",
+            'name' => "Admin",
             'email' => "madvier83@gmail.com",
             'password' => bcrypt("adminadmin"),
             'address' => "Bandung, katapang, Komp. paledang indah 2 blok e 1-3 no 1 rt 2 rw 13",
-            'phone' => "+62823 7693 2445",
+            'phone' => "+62 823 7693 2445",
         ]);
         User::create([
-            'name' => "Czans",
+            'name' => "Muhammad Advie Rifaldy",
             'email' => "madvier84@gmail.com",
             'password' => bcrypt("adminadmin"),
             'address' => "Bandung, katapang, Komp. paledang indah 2 blok e 1-3 no 1 rt 2 rw 13",
-            'phone' => "+62823 7693 2005",
+            'phone' => "+62 823 7693 2005",
         ]);
 
         Product::create([
             'name' => 'Test product 1',
             'user_id' => 1,
-            'category_id' => 3,
-            'description' => '<div><strong><br>Different By Design<br></strong><br></div><div>Most WYSIWYG editors are wrappers around HTML’s contenteditable and execCommand APIs, designed by Microsoft to support live editing of web pages in Internet Explorer 5.5, and <a href="https://blog.whatwg.org/the-road-to-html-5-contenteditable#history">eventually reverse-engineered</a> and copied by other browsers.<br><br></div><div>Because these APIs were never fully specified or documented, and because WYSIWYG HTML editors are enormous in scope, each browser’s implementation has its own set of bugs and quirks, and JavaScript developers are left to resolve the inconsistencies.<br><br></div><div>Trix sidesteps these inconsistencies by treating contenteditable as an I/O device: when input makes its way to the editor, Trix converts that input into an editing operation on its internal document model, then re-renders that document back into the editor. This gives Trix complete control over what happens after every keystroke, and avoids the need to use execCommand at all.<br><br></div>',
-            'image' => 'product-images\RMWdoaiTwRRUdnrP0Rr3phOKpJmelP3xl1TnDK0M.webp',
-            'price' => 120000,
+            'category_id' => 2,
+            'description' => "<div>What is Lorem Ipsum?<br><br></div><div><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br></div>",
+            'image' => 'product-images\ekUoQJcKjYsthByTsxlux1PYfIWjvIWMcMoyw7pR.webp',
+            'price' => 275000,
             'stock' => 12,
             'timestamp' => '2022-10-29 15:17:23'
-            
+
         ]);
         Product::create([
-            'name' => 'Test product 1',
+            'name' => 'Test product 2',
             'user_id' => 1,
-            'category_id' => 3,
-            'description' => '<div><strong><br>Different By Design<br></strong><br></div><div>Most WYSIWYG editors are wrappers around HTML’s contenteditable and execCommand APIs, designed by Microsoft to support live editing of web pages in Internet Explorer 5.5, and <a href="https://blog.whatwg.org/the-road-to-html-5-contenteditable#history">eventually reverse-engineered</a> and copied by other browsers.<br><br></div><div>Because these APIs were never fully specified or documented, and because WYSIWYG HTML editors are enormous in scope, each browser’s implementation has its own set of bugs and quirks, and JavaScript developers are left to resolve the inconsistencies.<br><br></div><div>Trix sidesteps these inconsistencies by treating contenteditable as an I/O device: when input makes its way to the editor, Trix converts that input into an editing operation on its internal document model, then re-renders that document back into the editor. This gives Trix complete control over what happens after every keystroke, and avoids the need to use execCommand at all.<br><br></div>',
+            'category_id' => 2,
+            'description' => "<div>What is Lorem Ipsum?<br><br></div><div><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br></div>",
             'image' => 'product-images\RMWdoaiTwRRUdnrP0Rr3phOKpJmelP3xl1TnDK0M.webp',
             'price' => 175000,
             'stock' => 12,
             'timestamp' => '2022-10-29 15:17:23'
-            
+
+        ]);
+        Product::create([
+            'name' => 'Test product 3',
+            'user_id' => 1,
+            'category_id' => 2,
+            'description' => "<div>What is Lorem Ipsum?<br><br></div><div><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br></div>",
+            'image' => 'product-images\oxVj4lBdutjdWhpiMnkjNsxSm6sQTERXwKP7mvSx.png',
+            'price' => 120000,
+            'stock' => 12,
+            'timestamp' => '2022-10-29 15:17:23'
+
         ]);
 
         Category::create([
@@ -67,12 +78,20 @@ class DatabaseSeeder extends Seeder
             'slug' => 'elektronik',
         ]);
         Category::create([
-            'name' => 'Fashion',
-            'slug' => 'fashion',
-        ]);
-        Category::create([
             'name' => 'Digital',
             'slug' => 'digital',
+        ]);
+        Category::create([
+            'name' => 'Pakaian',
+            'slug' => 'pakaian',
+        ]);
+        Category::create([
+            'name' => 'Furnitur',
+            'slug' => 'furnitur',
+        ]);
+        Category::create([
+            'name' => 'Makanan',
+            'slug' => 'makanan',
         ]);
     }
 }

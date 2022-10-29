@@ -3,7 +3,7 @@
 @section('title', 'BukaToko | Welcome')
 @section('content')
 <div class="flex flex-col pb-48">
-    <h1 class="text-5xl font-bold m-8 lg:px-24 pt-24">
+    <h1 class="text-5xl font-bold m-8 lg:px-24 pt-16">
         {{ $product->name }}
     </h1>
     <div class="px-8 lg:px-32">
@@ -54,7 +54,7 @@
                         $product->user->created_at->diffForHumans() }})</p>
                 </div>
 
-                <h3 class="text-3xl font-bold my-8">— Langsung Beli</h3>
+                <h3 class="text-3xl font-bold my-8 mt-16">— Langsung Beli</h3>
                 <form action="/transaksi" method="post">
                     @csrf
                     <div class="text-zinc-400 flex flex-col gap-4 bg-emerald-900 p-8 w-min rounded-xl">
@@ -67,14 +67,14 @@
                                     <span class="label-text">Jumlah</span>
                                 </label> --}}
                                 <input type="number" placeholder="" name="qty" value="{{ 1 }}"
-                                    class="input input-sm input-bordered bg-white text-zinc-900 @error('stock') input-error @enderror" />
+                                    class="input input-sm input-bordered bg-white text-zinc-900 @error('stock') input-error @enderror"/>
                             </div>
                         </div>
 
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <input type="hidden" name="buyer_id" value="{{ auth()->user()->id }}">
                         <input type="hidden" name="seller_id" value="{{ $product->user->id }}">
-                        <button class="btn btn-success w-64 mt-4">Checkout</button>
+                        <button class="btn btn-success w-64 mt-4" {{ $product->user->id == auth()->user()->id ? 'disabled' : '' }}>Checkout</button>
                     </div>
                 </form>
             </div>

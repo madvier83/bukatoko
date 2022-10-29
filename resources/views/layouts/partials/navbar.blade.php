@@ -11,10 +11,11 @@
             </label>
             <ul tabindex="0"
                 class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-zinc-800 hover:shadow-lg rounded-box w-52">
-                <li><a>Homepage</a></li>
-                <li><a>Kategori</a></li>
-                <li><a href="/akun">Akun</a></li>
-                <li><a href="/toko" class="text-emerald-400">Toko Saya</a></li>
+                <li><a href="/">Homepage</a></li>
+                <li><a href="/produk">Search</a></li>
+                <li><a href="/akun">Profile</a></li>
+                <li><a href="/pesanan">Pesanan</a></li>
+                <li><a href="/toko" class="text-emerald-400">Produk Saya</a></li>
                 @auth
                 <div class="divider p-0 m-0"></div>
                 <li>

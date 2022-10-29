@@ -1,12 +1,12 @@
 @extends('layouts.toko')
 
-@section('title', 'Profile')
+@section('title', 'BukaToko | Profile')
 @section('content')
 <div class="flex mt-8">
     <div class="py-12 mx-auto items-center justify-center rounded-2xl shadow-xl z-20 w-96">
         <div>
             {{-- <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer text-white">{{ auth()->user()->name }}</h1> --}}
-            <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer text-white">Profil Akun</h1>
+            <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer text-white">Profile</h1>
         </div>
         <div class="flex my-4 mt-8">
             <img src="/img/default.webp" alt="profile picture" class="rounded-full avatar w-24 mx-auto">
@@ -62,8 +62,12 @@
             </div>
 
             <div class="flex mt-8 gap-2 items-center justify-end flex-col">
-                <button class="btn btn-primary w-full">Ubah Data</button>
-                {{-- <a href="/login" class="btn btn-ghost text-primary w-full normal-case">Sudah punya akun? Login</a> --}}
+                {{-- <button class="btn btn-primary w-full">Ubah Data</button> --}}
+                
+                <form action="/logout" method="post" class="w-full">
+                    @csrf
+                    <button class="btn btn-ghost text-error w-full normal-case">Logout</button>
+                </form>
             </div>
             {{-- </form> --}}
     </div>

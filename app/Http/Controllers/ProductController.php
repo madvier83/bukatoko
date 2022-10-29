@@ -50,7 +50,7 @@ class ProductController extends Controller
 
         $image = $request->file('image')->store('product-images');
         $validated['image'] = $image;
-        
+
         $validated['user_id'] = Auth::user()->id;
 
         Product::create($validated);
@@ -76,7 +76,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        // dd($product);
+        return view('product_edit', ['product' => $product, 'categories' => Category::all()]);
     }
 
     /**
@@ -88,7 +89,22 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min:4',
+            'description' => 'required|min:8',
+            'category_id' => 'required',
+            'price' => 'required|max:16',
+            'stock' => 'required',
+        ]);
+
+        $validated['image'] = $product->image;
+        if ($request['image']) {
+            $image = $request->file('image')->store('product-images');
+            $validated['image'] = $image;
+        }
+
+        Product::where('id', $product['id'])->update($validated);
+        return redirect('/toko');
     }
 
     /**

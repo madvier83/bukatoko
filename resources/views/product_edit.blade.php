@@ -6,17 +6,16 @@
     <div class="flex flex-col">
 
         <div>
-            <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Tambah Produk</h1>
+            <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Edit Produk</h1>
         </div>
 
-        <form action="/toko" method="post" class="mx-auto flex flex-col gap-4 w-96" enctype="multipart/form-data">
+        <form action="/products/update/{{ $product['id'] }}" method="post" class="mx-auto flex flex-col gap-4 w-96" enctype="multipart/form-data">
             @csrf
-
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">Nama Produk</span>
                 </label>
-                <input type="text" placeholder="" name="name" value="{{ old('name') }}"
+                <input type="text" placeholder="" name="name" value="{{ old('name') ?? $product->name }}"
                     class="input input-bordered bg-white text-zinc-900 @error('name') input-error @enderror" />
                 @error('name')
                 <label class="label">
@@ -32,7 +31,7 @@
                 </label>
                 <div id="editor"></div>
 
-                <input type="hidden" id="x" name="description" value="{{ old('description') }}">
+                <input type="hidden" id="x" name="description" value="{{ old('description') ?? $product->description }}">
                 <trix-editor input="x"
                     class="bg-white text-black input h-32 overflow-auto @error('description') input-error @enderror">
                 </trix-editor>
@@ -73,7 +72,7 @@
                     <label class="label">
                         <span class="label-text">Harga (Rp)</span>
                     </label>
-                    <input type="number" placeholder="" name="price" value="{{ old('price') }}"
+                    <input type="number" placeholder="" name="price" value="{{ old('price') ?? $product->price }}"
                         class="input input-bordered bg-white text-zinc-900 @error('price') input-error @enderror" />
                     @error('price')
                     <label class="label">
@@ -87,7 +86,7 @@
                     <label class="label">
                         <span class="label-text">Stok</span>
                     </label>
-                    <input type="number" placeholder="" name="stock" value="{{ old('stock') }}"
+                    <input type="number" placeholder="" name="stock" value="{{ old('stock') ?? $product->stock }}"
                         class="input input-bordered bg-white text-zinc-900 @error('stock') input-error @enderror" />
                     {{-- @error('name')
                     <label class="label">

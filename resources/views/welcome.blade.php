@@ -2,9 +2,22 @@
 
 @section('title', 'BukaToko | Welcome')
 @section('content')
-<h1 class="text-5xl text-zinc-200 font-bold px-36 mt-24 mb-16">
-    Belanja mudah dari rumah
-</h1>
+<div class="flex justify-between items-end px-36 mt-24 mb-16">
+    <h1 class="text-5xl text-zinc-200 font-bold">
+        Belanja mudah dari rumah
+    </h1>
+    <a href="/produk">
+        <div class="flex items-center ">
+            <h3 class="text-zinc-200 mr-4">
+                Cari Barang
+            </h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+    </div>
+    </a>
+</div>
 <div class="relative">
 
     <div class="flex overflow-hidden px-36 overflow-y-hidden gap-2 box-scroll">
@@ -35,7 +48,14 @@
                     <div class="mt-4 mb-2 flex justify-between pr-2">
                         <button class="block text-xl font-semibold text-zinc-300 cursor-auto">Rp. {{
                             number_format($item->price) }}</button>
-                        <a href="/products/{{ $item->id }}" class="btn btn-success">Buy</a>
+                        <a href="/products/{{ $item->id }}" class="btn btn-success">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -45,7 +65,7 @@
 
 </div>
 
-<div class="px-36 mt-24">
+<div class="px-36 mt-24 pb-64">
     <div class="flex">
         <h2 class="text-xl w-36 mr-4">— <br>Serbu Produk terbaru</h2>
 
@@ -63,13 +83,22 @@
                     </div>
                     <div class="mt-4">
                         <h1 class="text-2xl font-bold text-zinc-300 truncate">{{ $item->name }}</h1>
-                        <div class="text-sm mt-2 text-zinc-400 truncate text-ellipsis whitespace-nowrap overflow-hidden">{{
+                        <div
+                            class="text-sm mt-2 text-zinc-400 truncate text-ellipsis whitespace-nowrap overflow-hidden">
+                            {{
                             strip_tags(str_replace('<', ' <' , $item->description)) }}</div>
                         <a href="#" class="text-xs text-emerald-500 font-semibold">{{ $item->user->name }}</a>
                         <div class="mt-4 mb-2 flex justify-between pr-2">
                             <button class="block text-xl font-semibold text-zinc-300 cursor-auto">Rp. {{
                                 number_format($item->price) }}</button>
-                            <a href="/products/{{ $item->id }}" class="btn btn-success">Buy</a>
+                            <a href="/products/{{ $item->id }}" class="btn btn-success">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/products', [HomeController::class, 'index']);
-Route::get('/products/{product:id}', [HomeController::class, 'details']);
+// Route::get('/products', [HomeController::class, 'index']);
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -37,6 +36,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/akun', [HomeController::class, 'account']);
     Route::get('/pesanan', [HomeController::class, 'orders']);
 
-    Route::resource('/toko', ProductController::class);
+    Route::get('/products/{product:id}', [HomeController::class, 'details']);
+    Route::get('/produk', [HomeController::class, 'products']);
+    
+    Route::get('/toko', [ProductController::class, 'index']);
+    Route::get('/toko/create', [ProductController::class, 'create']);
+    Route::Post('/toko', [ProductController::class, 'store']);
+    Route::get('/products/edit/{product:id}', [ProductController::class, 'edit']);
+    Route::post('/products/update/{product:id}', [ProductController::class, 'update']);
+
     Route::resource('/transaksi', TransactionController::class);
 });

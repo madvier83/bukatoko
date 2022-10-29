@@ -25,11 +25,11 @@ class TransactionController extends Controller
 
     public function update(Request $request) {
 
-        $data = Transaction::where('id', $request['id'])->first();
+        // $data = Transaction::where('id', $request['id'])->first();
         // $data['status'] = $data['status'] +  1;
         // dd($data);
 
-        Transaction::where('id', $request['id'])->update(['status' =>  $data['status'] +  1]);
+        Transaction::where('id', $request['id'])->update(['status' =>  $request->status]);
         return redirect('/pesanan');
     }
 }

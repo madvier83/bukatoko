@@ -3,7 +3,7 @@
     </div>
     <div class="navbar-center">
         <ul class="flex gap-8">
-            <li><a href="/akun" class="{{ Request::is('akun') ? "" : 'text-zinc-400' }}">Profil</a></li>
+            <li><a href="/akun" class="{{ Request::is('akun') ? "" : 'text-zinc-400' }}">Profile</a></li>
             <li><a href="/toko" class="{{ Request::is('toko') ? "" : 'text-zinc-400' }}">Produk</a></li>
             <li><a href="/pesanan" class="{{ Request::is('pesanan') ? "" : 'text-zinc-400' }}">Pesanan</a></li>
             {{-- <li tabindex="0">

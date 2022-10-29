@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,20 @@ class HomeController extends Controller
 {
     public function index() {
         return view('welcome', ['products' => Product::all()]);
+    }
+    
+    public function products() {
+        $products = Product::all();
+        
+        if(request('category')) {
+            $products = Product::where('category_id', 'like', '%' . request('category') . '%')->get();
+        }
+        if(request('search')) {
+            $products = Product::where('name', 'like', '%' . request('search') . '%')
+            ->orWhere('description', 'like', '%' . request('search') . '%')->get();
+        }
+
+        return view('products', ['products' => $products, 'categories' => Category::all()]);
     }
 
     public function details(Product $product) {
@@ -23,8 +38,8 @@ class HomeController extends Controller
 
     public function orders() {
         return view('order', [
-            'orders' => Transaction::where('buyer_id', auth()->user()->id)->get(),
-            'orders_in' => Transaction::where('seller_id', auth()->user()->id)->get(),
+            'orders_in' => Transaction::where('seller_id', auth()->user()->id)->latest()->get(),
+            'orders' => Transaction::where('buyer_id', auth()->user()->id)->latest()->get(),
         ]);
     }
 }
