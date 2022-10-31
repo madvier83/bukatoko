@@ -11,11 +11,16 @@
             </label>
             <ul tabindex="0"
                 class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-zinc-800 hover:shadow-lg rounded-box w-52">
-                <li><a href="/">Homepage</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/dashboard/users">Users</a></li>
+                <li><a href="/dashboard/categories">Categories</a></li>
+                <li><a href="/dashboard/products">Products</a></li>
+                <li><a href="/dashboard/transactions">Transaction</a></li>
+                {{-- <li><a href="/">Homepage</a></li>
                 <li><a href="/products">Search</a></li>
                 <li><a href="/akun">Profile</a></li>
                 <li><a href="/pesanan">Pesanan</a></li>
-                <li><a href="/toko" class="text-emerald-400">Produk Saya</a></li>
+                <li><a href="/toko" class="text-emerald-400">Produk Saya</a></li> --}}
                 @auth
                 <div class="divider p-0 m-0"></div>
                 <li>
@@ -31,7 +36,7 @@
 
     <div class="navbar-center">
         <div class="inline-flex">
-            <a href="/">
+            <a href="/dashboard">
                 <h2 class="text-3xl font-bold text-emerald-400 cursor-pointer select-none">BukaToko</h2>
             </a>
         </div>
@@ -46,7 +51,7 @@
                     <div class="inline relative">
 
                         @auth
-                        <a href="/akun" class="flex">
+                        <a href="/dashboard" class="flex">
                             <button type="button"
                                 class="inline-flex items-center relative px-2 btn btn-ghost rounded-full hover:shadow-lg">
                                 <div class="pl-2 normal-case hidden md:block">

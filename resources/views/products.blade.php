@@ -3,7 +3,7 @@
 @section('title', 'BukaToko | Welcome')
 @section('content')
 
-<div class="px-36 mt-24 pb-64">
+<div class="px-8 md:px-36 mt-24 pb-64">
     <div class="flex items-center gap-4 justify-center">
 
         {{-- <select class="select select-success w-full max-w-xs focus:outline-none text-black bg-white">
@@ -17,6 +17,7 @@
             <option>JavaScript</option>
             <option>Python</option>
         </select> --}}
+
         <!-- search bar -->
         <div class="w-min">
             <form>
@@ -24,7 +25,7 @@
                     <div class="form-control">
                         <div class="input-group">
                             <input type="text" placeholder="Cari..." name="search" value="{{ request('search') }}"
-                                class="input input-bordered w-96 input-success focus:outline-none text-black bg-white" />
+                                class="input input-bordered w-72 md:w-96 input-success focus:outline-none text-black bg-white" />
                             <button class="btn btn-square btn-success text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -39,13 +40,12 @@
         </div>
 
     </div>
-    <div class="flex mt-16">
+    <div class="flex flex-col md:flex-row mt-4 md:mt-16">
         <div class="flex flex-col">
-            <h2 class="text-xl w-36 mr-2 mb-8">— <br>Cari produk</h2>
-            <ul class="text-zinc-400">
-
+            <h2 class="text-xl w-36 mr-3 mb-4 md:mb-8">— <br>Cari produk</h2>
+            <ul class="flex md:block gap-4 flex-wrap text-zinc-400">
                 @foreach($categories as $category)
-                <li><a href="?category={{ $category->id }}">{{ $category->name }}</a></li>
+                <li><a href="?category={{ $category->id }}" class=" btn btn-xs btn-badge normal-case">{{ $category->name }}</a></li>
                 @endforeach
             </ul>
         </div>
@@ -57,8 +57,8 @@
                     class="group flex flex-col h-[440] w-80 p-4 my-4 bg-zinc-800 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
                     <div
                         class="flex items-center justify-center overflow-hidden bg-white object-contain rounded-t-md opacity-75">
-                        <div class="h-64 flex">
-                            <img class="object-cover scale-110 group-hover:scale-100 duration-500"
+                        <div class="h-64 w-64 flex">
+                            <img class="object-cover scale-110 group-hover:scale-100 duration-500 mx-auto"
                                 src="{{ asset('storage/'.$item->image) }}" alt="" />
                         </div>
                     </div>

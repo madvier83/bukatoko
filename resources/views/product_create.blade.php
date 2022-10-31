@@ -9,7 +9,7 @@
             <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Tambah Produk</h1>
         </div>
 
-        <form action="/toko" method="post" class="mx-auto flex flex-col gap-4 w-96" enctype="multipart/form-data">
+        <form action="/toko" method="post" class="mx-auto flex flex-col gap-4 w-80 md:w-96" enctype="multipart/form-data">
             @csrf
 
             <div class="form-control">

@@ -26,22 +26,30 @@ class DatabaseSeeder extends Seeder
         // ]);
         User::create([
             'name' => "Admin",
+            'role' => "admin",
+            'email' => "admin83@gmail.com",
+            'password' => bcrypt("adminadmin"),
+            'address' => "Kab. Bandung, Jawa Barat, Desa Bojong Kunci, Kec. Pameungpeuk, Komp. Paledang Indah 2 blok E 1-3 no 1 RT 2 RW 13",
+            'phone' => "+62 823 7693 2445",
+        ]);
+        User::create([
+            'name' => "Advie Admin",
             'email' => "madvier83@gmail.com",
             'password' => bcrypt("adminadmin"),
-            'address' => "Bandung, katapang, Komp. paledang indah 2 blok e 1-3 no 1 rt 2 rw 13",
+            'address' => "Kab. Bandung, Jawa Barat, Desa Bojong Kunci, Kec. Pameungpeuk, Komp. Paledang Indah 2 blok E 1-3 no 1 RT 2 RW 13",
             'phone' => "+62 823 7693 2445",
         ]);
         User::create([
             'name' => "Muhammad Advie Rifaldy",
             'email' => "madvier84@gmail.com",
             'password' => bcrypt("adminadmin"),
-            'address' => "Bandung, katapang, Komp. paledang indah 2 blok e 1-3 no 1 rt 2 rw 13",
+            'address' => "Kab. Bandung, Jawa Barat, Desa Bojong Kunci, Kec. Pameungpeuk, Komp. Paledang Indah 2 blok E 1-3 no 1 RT 2 RW 13",
             'phone' => "+62 823 7693 2005",
         ]);
 
         Product::create([
             'name' => 'Test product 1',
-            'user_id' => 1,
+            'user_id' => 2,
             'category_id' => 2,
             'description' => "<div>What is Lorem Ipsum?<br><br></div><div><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br></div>",
             'image' => 'product-images\ekUoQJcKjYsthByTsxlux1PYfIWjvIWMcMoyw7pR.webp',
@@ -52,7 +60,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Product::create([
             'name' => 'Test product 2',
-            'user_id' => 1,
+            'user_id' => 2,
             'category_id' => 2,
             'description' => "<div>What is Lorem Ipsum?<br><br></div><div><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br></div>",
             'image' => 'product-images\RMWdoaiTwRRUdnrP0Rr3phOKpJmelP3xl1TnDK0M.webp',
@@ -63,7 +71,7 @@ class DatabaseSeeder extends Seeder
         ]);
         Product::create([
             'name' => 'Test product 3',
-            'user_id' => 1,
+            'user_id' => 2,
             'category_id' => 2,
             'description' => "<div>What is Lorem Ipsum?<br><br></div><div><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br><br></div>",
             'image' => 'product-images\oxVj4lBdutjdWhpiMnkjNsxSm6sQTERXwKP7mvSx.png',

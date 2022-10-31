@@ -3,7 +3,7 @@
 @section('title', 'BukaToko | Profile')
 @section('content')
 <div class="flex mt-8">
-    <div class="py-12 mx-auto items-center justify-center rounded-2xl shadow-xl z-20 w-96">
+    <div class="py-12 mx-auto items-center justify-center rounded-2xl shadow-xl z-20 w-96  px-4">
         <div>
             {{-- <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer text-white">{{ auth()->user()->name }}</h1> --}}
             <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer text-white">Profile</h1>
@@ -12,7 +12,7 @@
             <img src="/img/default.webp" alt="profile picture" class="rounded-full avatar w-24 mx-auto">
         </div>
         {{-- <form action="/register" method="post"> --}}
-            @csrf
+            {{-- @csrf --}}
             <div class="form-control w-full">
                 <label class="label">
                     <span class="label-text">Nama Lengkap</span>

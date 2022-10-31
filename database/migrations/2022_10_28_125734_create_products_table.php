@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->string('image');
+            $table->string('status')->default('ready');
             $table->timestamp('timestamp');
             $table->timestamps();
         });

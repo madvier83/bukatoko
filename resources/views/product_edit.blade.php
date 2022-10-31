@@ -9,7 +9,7 @@
             <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Edit Produk</h1>
         </div>
 
-        <form action="/products/update/{{ $product['id'] }}" method="post" class="mx-auto flex flex-col gap-4 w-96" enctype="multipart/form-data">
+        <form action="/products/update/{{ $product['id'] }}" method="post" class="mx-auto flex flex-col gap-4 w-80 md:w-96" enctype="multipart/form-data">
             @csrf
             <div class="form-control">
                 <label class="label">
@@ -114,6 +114,13 @@
 
             <div class=" mt-8">
                 <button class="btn btn-primary w-full">Simpan</button>
+            </div>
+        </form>
+        <form action="/products/{{ $product->id }}" method="post" class="mx-auto">
+            @csrf
+            <input type="hidden" name="id" value="{{ $product->id }}"">
+            <div class="mt-4 mx-auto">
+                <button class="btn btn-error btn-outline w-96">Hapus Produk</button>
             </div>
         </form>
     </div>

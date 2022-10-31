@@ -13,13 +13,13 @@
     </div>
     @else
 
-    <h2 class="text-3xl font-bold text-zinc-300 text-center">Produk kamu</h2>
-    <a href="/toko/create" class="btn btn-success font-bold w-48 my-8 ml-8 border-none">
+    <h2 class="text-3xl font-bold text-zinc-300 text-center">Produk Saya</h2>
+    <a href="/toko/create" class="btn btn-success font-bold w-48 my-8 md:ml-8 mx-auto border-none">
         Tambah Produk
     </a>
     @endif
 
-    <div class="flex flex-wrap gap-4">
+    <div class="flex flex-wrap gap-4 px-4">
         @foreach($products as $item)
         <a href="/products/{{ $item->id }}">
             <div

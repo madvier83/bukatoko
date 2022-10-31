@@ -3,12 +3,12 @@
 @section('title', 'BukaToko | Pesanan')
 @section('content')
 {{-- @dd($order_in) --}}
-<div class="mx-32 pb-64">
+<div class="mx-4 lg:mx-32 pb-64">
 
     <h2 class="text-xl mr-4 mt-16">— Pesanan Masuk</h2>
 
     @if($orders_in->isEmpty())
-    <div class="my-8 ml-32 opacity-70 bg-emerald-900 w-min rounded-lg p-4">
+    <div class="my-8 mx-auto lg:mx-0 lg:ml-32 opacity-70 bg-emerald-900 w-min rounded-lg p-4">
         <p class="mx-4">Belum ada yang pesan barang kamu :(</p>
         <a href="/toko" class="btn btn-sm btn-success font-bold mx-4 w-48 mt-8 border-none">
             Lihat Produk
@@ -16,19 +16,19 @@
     </div>
     @endif
 
-    <div class="flex flex-col mt-8 px-32">
+    <div class="flex flex-col mt-8 lg:px-16">
         {{-- @dd($orders) --}}
         @foreach($orders_in as $item)
         <div class="flex w-full p-8 my-4 bg-zinc-800 rounded-xl">
 
-            <div class="flex justify-between w-full">
+            <div class="flex flex-col md:flex-row gap-4 lg:gap-0 justify-between w-full">
 
-                <div class="flex">
-                    <div class="w-36 h-36 overflow-hidden rounded-xl bg-white flex mr-8">
-                        <img class="object-cover scale-110 group-hover:scale-100 duration-500"
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-full max-h-72 md:w-36 md:h-36 overflow-hidden rounded-xl bg-white flex mr-8">
+                        <img class="mx-auto object-cover scale-110 group-hover:scale-100 duration-500"
                             src="{{ asset('storage/'.$item->product->image) }}" alt="" />
                     </div>
-                    <div class="w-64">
+                    <div class="md:w-[20%]">
                         <h2 class="text-2xl font-semibold mb-4 truncate">{{ $item->product->name }}</h2>
                         <div class="opacity-60">
                             <p>Harga: Rp.{{ $item->product->price }}</p>
@@ -37,7 +37,7 @@
                             <p>Pemesanan {{ $item->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
-                    <div class="w-96 ml-16">
+                    <div class="md:ml-8 md:w-[50%]">
                         <h2 class="text-2xl font-semibold mb-4">Detail pesanan ID #{{ $item->id }}</h2>
                         <div class="opacity-60">
                             <p>Pesanan dari: {{ $item->buyer->name }}</p>
@@ -47,8 +47,8 @@
                     </div>
                 </div>
 
-                <div class="flex items-center">
-                    <form action="/transaksi/{{ $item->id }}" method="post">
+                <div class="flex items-center md:w-[20%]">
+                    <form action="/transaksi/{{ $item->id }}" method="post" class="ml-auto">
                         @csrf
                         @method('put')
                         {{-- {{ $item->id }} --}}
@@ -93,26 +93,26 @@
     <h2 class="text-xl mr-4 mt-8">— Pesanan Kamu</h2>
     
     @if($orders->isEmpty())
-    <div class="my-8 ml-32 opacity-70 bg-purple-900 w-min rounded-lg p-4">
+    <div class="my-8 mx-auto lg:mx-0 lg:ml-32 opacity-70 bg-purple-900 w-min rounded-lg p-4">
         <p class="mx-4">Belum ada barang yang kamu pesan</p>
-        <a href="/" class="btn btn-sm btn-primary font-bold mx-4 w-48 mt-8 border-none">
+        <a href="/produk" class="btn btn-sm btn-primary font-bold mx-4 w-48 mt-8 border-none">
             Cari Barang
         </a>
     </div>
     @endif
 
-    <div class="flex flex-col mt-8 px-32">
+    <div class="flex flex-col mt-8 px-4 lg:px-16">
         {{-- @dd($orders) --}}
         @foreach($orders as $item)
-        <div class="flex w-full p-8 my-4 bg-zinc-800 rounded-xl">
+        <div class="flex flex-col w-full p-8 my-4 bg-zinc-800 rounded-xl">
 
-            <div class="flex justify-between w-full">
-                <div class="flex">
-                    <div class="w-36 h-36 overflow-hidden rounded-xl bg-white flex mr-8">
-                        <img class="object-cover scale-110 group-hover:scale-100 duration-500"
+            <div class="flex flex-col md:flex-row gap-4 justify-between w-full">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="w-full max-h-72 md:w-36 md:h-36 overflow-hidden rounded-xl bg-white flex mr-8">
+                        <img class="mx-auto object-cover scale-110 group-hover:scale-100 duration-500"
                             src="{{ asset('storage/'.$item->product->image) }}" alt="" />
                     </div>
-                    <div class="w-64">
+                    <div class="md:w-[20%]">
                         <h2 class="text-2xl font-semibold mb-4 truncate">{{ $item->product->name }}</h2>
                         <div class="opacity-60">
                             <p>Harga: Rp.{{ number_format($item->product->price) }}</p>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
 
-                    <div class="w-96 ml-16">
+                    <div class="md:ml-8 md:w-[50%]">
                         <h2 class="text-2xl font-semibold mb-4">Informasi penjual</h2>
                         <div class="opacity-60">
                             <p>Toko: {{ $item->seller->name }}</p>
@@ -132,8 +132,8 @@
                     </div>
                 </div>
 
-                <div class="flex items-center">
-                    <form action="/transaksi/{{ $item->id }}" method="post">
+                <div class="flex items-center md:w-[20%]">
+                    <form action="/transaksi/{{ $item->id }}" method="post"  class="ml-auto">
                         @csrf
                         @method('put')
                         {{-- {{ $item->id }} --}}

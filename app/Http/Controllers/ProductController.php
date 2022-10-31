@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
         // dd(Product::first()->user);
         // dd( Product::where('user_id', Auth::user()->id)->get());
-        return view('toko', ['products' => Product::where('user_id', Auth::user()->id)->get()]);
+        return view('toko', ['products' => Product::where('user_id', Auth::user()->id)->ready()->get()]);
     }
 
     /**
@@ -115,6 +115,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Product::where('id',$product->id)->update(['status' => 'archive']);
+        return redirect('/toko');
     }
 }

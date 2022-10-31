@@ -10,18 +10,18 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index() {
-        return view('welcome', ['products' => Product::all()]);
+        return view('welcome', ['products' => Product::ready()->latest()->get()]);
     }
     
     public function products() {
-        $products = Product::all();
+        $products = Product::latest()->ready()->get();
         
         if(request('category')) {
-            $products = Product::where('category_id', 'like', '%' . request('category') . '%')->get();
+            $products = Product::where('category_id', 'like', '%' . request('category') . '%')->ready()->get();
         }
         if(request('search')) {
             $products = Product::where('name', 'like', '%' . request('search') . '%')
-            ->orWhere('description', 'like', '%' . request('search') . '%')->get();
+            ->orWhere('description', 'like', '%' . request('search') . '%')->ready()->get();
         }
 
         return view('products', ['products' => $products, 'categories' => Category::all()]);
