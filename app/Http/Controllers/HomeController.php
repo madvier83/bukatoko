@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index() {
-        return view('welcome', ['products' => Product::ready()->latest()->get()]);
+        return view('welcome', ['recomended_products' => Product::orderBy('price','asc')->ready()->take(10)->get(),'products' => Product::ready()->latest()->get()]);
     }
     
     public function products() {
@@ -24,7 +24,7 @@ class HomeController extends Controller
             ->orWhere('description', 'like', '%' . request('search') . '%')->ready()->get();
         }
 
-        return view('products', ['products' => $products, 'categories' => Category::all()]);
+        return view('products', ['products' => $products, 'categories' => Category::enabled()->get()]);
     }
 
     public function details(Product $product) {

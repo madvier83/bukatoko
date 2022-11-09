@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product_create', ['categories' => Category::all()]);
+        return view('product_create', ['categories' => Category::enabled()->get()]);
     }
 
     /**
@@ -77,7 +77,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         // dd($product);
-        return view('product_edit', ['product' => $product, 'categories' => Category::all()]);
+        return view('product_edit', ['product' => $product, 'categories' => Category::enabled()->get()]);
     }
 
     /**

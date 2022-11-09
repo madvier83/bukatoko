@@ -92,7 +92,7 @@
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                         <input type="hidden" name="buyer_id" value="{{ auth()->user()->id }}">
                         <input type="hidden" name="seller_id" value="{{ $product->user->id }}">
-                        <button class="btn btn-success w-64 mt-4" {{ $product->user->id == auth()->user()->id ?
+                        <button class="btn btn-success w-64 mt-4" onclick="return confirm('Beli produk ini?')" {{ $product->user->id == auth()->user()->id ?
                             'disabled' : '' }}>Checkout</button>
                         @else
                         <button class="btn btn-success w-64 mt-4" disabled>Checkout</button>

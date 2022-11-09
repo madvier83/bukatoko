@@ -141,7 +141,7 @@
                         @if($item->status<=0) 
                         <input type="hidden" name="status" value="{{ 1 }}">
                         <button class="text-zinc-500 p-3 font-bold" disabled>
-                            Menunggu pesanan diterima
+                            Menunggu konfirmasi penjual
                         </button>
                         @elseif($item->status==1)
                         <input type="hidden" name="status" value="{{ 2 }}">

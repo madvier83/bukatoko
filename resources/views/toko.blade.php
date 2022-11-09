@@ -25,7 +25,7 @@
             <div
                 class="group flex flex-col h-[440] w-80 p-4 my-4 bg-zinc-800 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
                 <div
-                    class="flex items-center justify-center overflow-hidden bg-white object-contain rounded-t-md opacity-75">
+                    class="flex items-center justify-center overflow-hidden bg-zinc-700 object-contain rounded-t-md opacity-75">
                     <div class="h-64 flex">
                         <img class="object-cover scale-110 group-hover:scale-100 duration-500"
                             src="{{ asset('storage/'.$item->image) }}" alt="" />

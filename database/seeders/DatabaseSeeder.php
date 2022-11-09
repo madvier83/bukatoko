@@ -33,14 +33,14 @@ class DatabaseSeeder extends Seeder
             'phone' => "+62 823 7693 2445",
         ]);
         User::create([
-            'name' => "Advie Admin",
+            'name' => "Muhammad Advie Rifaldy",
             'email' => "madvier83@gmail.com",
             'password' => bcrypt("adminadmin"),
             'address' => "Kab. Bandung, Jawa Barat, Desa Bojong Kunci, Kec. Pameungpeuk, Komp. Paledang Indah 2 blok E 1-3 no 1 RT 2 RW 13",
             'phone' => "+62 823 7693 2445",
         ]);
         User::create([
-            'name' => "Muhammad Advie Rifaldy",
+            'name' => "Buka Toko User 1",
             'email' => "madvier84@gmail.com",
             'password' => bcrypt("adminadmin"),
             'address' => "Kab. Bandung, Jawa Barat, Desa Bojong Kunci, Kec. Pameungpeuk, Komp. Paledang Indah 2 blok E 1-3 no 1 RT 2 RW 13",

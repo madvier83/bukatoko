@@ -35,7 +35,14 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min:3'
+        ]);
+        $validated['slug'] = strtolower(str_replace(' ', '-', $validated['name']));
+
+        // dd($validated);
+        Category::create($validated);
+        return redirect('/dashboard/categories');
     }
 
     /**
@@ -69,7 +76,14 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'status' => 'required',
+            'name' => 'required|min:3',
+        ]);
+        $validated['slug'] = strtolower(str_replace(' ', '-', $validated['name']));
+        // dd($request);
+        Category::where('id', $id)->update($validated);
+        return redirect('dashboard/categories');
     }
 
     /**

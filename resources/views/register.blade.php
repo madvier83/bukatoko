@@ -8,7 +8,7 @@
     <title>Buat Akun</title>
 </head>
 
-<body class="bg-zinc-800 text-white min-h-screen overflow-hidden">
+<body class="bg-zinc-800 text-white min-h-screen overflow-auto">
     <!-- component -->
     <div class="min-h-screen bg-zinc-900 flex justify-center items-center">
         <div
@@ -59,7 +59,7 @@
                         <span class="label-text">Alamat</span>
                     </label>
                     <textarea name="address" id="" cols="30" rows="10" placeholder="Alamat lengkap"
-                        class="input input-bordered bg-white text-zinc-900  py-2 h-24 @error('address') input-error @enderror"">{{ old('address') }}</textarea>
+                        class="input input-bordered bg-white text-zinc-900  py-2 h-20 @error('address') input-error @enderror"">{{ old('address') }}</textarea>
                 
                     @error('address')
                     <label class=" label">
@@ -95,6 +95,14 @@
                             {{ $message }}</span>
                     </label>
                     @enderror
+                </div>
+
+                <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                        <span class="label-text">Konfirmasi Password</span>
+                    </label>
+                    <input type="password" placeholder="Konfirmasi password" name="password_confirmation"
+                        class="input input-bordered w-full max-w-xs bg-white text-zinc-900 @error('password') input-error @enderror" />
                 </div>
 
                 <div class="flex mt-8 gap-2 items-center justify-end flex-col">

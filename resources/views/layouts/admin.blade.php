@@ -17,7 +17,23 @@
 
     @include('layouts.partials.navbaradmin')
 
-    <div class="">
+    <div class="flex">
+        <ul class="mx-auto flex gap-4 mt-6 text-zinc-400">
+            <li class="btn btn-xs rounded-xl font-normal normal-case {{ Request::is('dashboard') ? 'btn-primary' : '' }} w-28"><a href="/dashboard">Dashboard</a></li>
+            <li class="btn btn-xs rounded-xl font-normal normal-case {{ Request::is('dashboard/users') ? 'btn-primary' : '' }} w-28"><a href="/dashboard/users">Users</a></li>
+            <li class="btn btn-xs rounded-xl font-normal normal-case {{ Request::is('dashboard/categories') ? 'btn-primary' : '' }} w-28"><a href="/dashboard/categories">Categories</a></li>
+            <li class="btn btn-xs rounded-xl font-normal normal-case {{ Request::is('dashboard/products') ? 'btn-primary' : '' }} w-28"><a href="/dashboard/products">Products</a></li>
+            <li class="btn btn-xs rounded-xl font-normal normal-case {{ Request::is('dashboard/transactions') ? 'btn-primary' : '' }} w-28"><a href="/dashboard/transactions">Transactions</a></li>
+            <li>
+                <form action="/logout" method="post" class="">
+                    @csrf
+                    <button class="btn btn-xs rounded-xl btn-outline w-24 ml-4 btn-error">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="pb-64">
         @yield('content')
     </div>
 

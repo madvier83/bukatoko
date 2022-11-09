@@ -44,6 +44,7 @@
         <div class="flex flex-col">
             <h2 class="text-xl w-36 mr-3 mb-4 md:mb-8">— <br>Cari produk</h2>
             <ul class="flex md:block gap-4 flex-wrap text-zinc-400">
+                <li><a href="?" class=" btn btn-xs btn-badge normal-case">Semua Produk</a></li>
                 @foreach($categories as $category)
                 <li><a href="?category={{ $category->id }}" class=" btn btn-xs btn-badge normal-case">{{ $category->name }}</a></li>
                 @endforeach
@@ -51,12 +52,15 @@
         </div>
 
         <div class="flex flex-wrap gap-2 w-full">
+            @if($products->isEmpty())
+                <h2 class="text-xl mx-auto font-bold mt-8 lg:pr-36 text-zinc-500">Produk tidak ditemukan U_U</h2>
+            @endif
             @foreach($products as $item)
             <a href="/products/{{ $item->id }}">
                 <div
                     class="group flex flex-col h-[440] w-80 p-4 my-4 bg-zinc-800 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
                     <div
-                        class="flex items-center justify-center overflow-hidden bg-white object-contain rounded-t-md opacity-75">
+                        class="flex items-center justify-center overflow-hidden bg-zinc-700 object-contain rounded-t-md opacity-75">
                         <div class="h-64 w-64 flex">
                             <img class="object-cover scale-110 group-hover:scale-100 duration-500 mx-auto"
                                 src="{{ asset('storage/'.$item->image) }}" alt="" />
